@@ -3,9 +3,10 @@ import memesData from "../memesData.js"
 function Meme() {
 
     function handleClick() {
-        let memes = memesData.data.memes
-        let meme = memes[[Math.floor(Math.random()*memes.length)]]
-        return console.log(meme.url)
+        const memes = memesData.data.memes
+        const meme = memes[Math.floor(Math.random()*memes.length)]
+        let url = meme.url
+        return console.log(url)
     }
 
     return (
@@ -21,7 +22,13 @@ function Meme() {
                     placeholder="Bottom text"
                     className="form--input"
                 />
-                <button type="submit" className="form--button" onClick={handleClick}> Get a new meme image 🖼</button>
+                <button 
+                    type="submit" 
+                    className="form--button" 
+                    onClick={handleClick}
+                > 
+                    Get a new meme image 🖼
+                </button>
             </div >
         </main>
     )
