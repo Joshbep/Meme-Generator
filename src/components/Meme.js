@@ -1,12 +1,16 @@
+import memesData from "../memesData.js"
+
 function Meme() {
 
     function handleClick() {
-        console.log("I was clicked")
+        let memes = memesData.data.memes
+        let meme = memes[[Math.floor(Math.random()*memes.length)]]
+        return console.log(meme.url)
     }
-    
+
     return (
         <main>
-            <form className="form">
+            <div className="form">
                 <input 
                     type="text" 
                     placeholder="Top text"
@@ -18,7 +22,7 @@ function Meme() {
                     className="form--input"
                 />
                 <button type="submit" className="form--button" onClick={handleClick}> Get a new meme image 🖼</button>
-            </form >
+            </div >
         </main>
     )
 }
