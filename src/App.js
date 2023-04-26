@@ -4,12 +4,17 @@ import Header from './components/Header'
 import Meme from './components/Meme'
 
 function App() {
-  const [result, func] = useState("Yes")
+  const [isImportant, setIsImportant] = useState("Yes")
+
+  function handleClick() {
+    setIsImportant("No")
+  }
+
   return (
     <div className="App">
       <Header />
       <Meme />
-      <><h1>{result}</h1></>
+      <><h1 onClick={handleClick}>{isImportant}</h1></>
     </div>
   );
 }
