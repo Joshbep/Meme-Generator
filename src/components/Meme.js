@@ -3,13 +3,23 @@ import {useState} from "react"
 
 function Meme() {
 
-    const [memeImg, setMemeImg] = useState("")
+    const [meme, setMeme] = useState({
+        topText: "",
+        bottomText: "",
+        randomImage: "http://i.imgflip.com/1bij.jpg"
+    })
+    const [allMemeImages, setAllMemeImages] = useState(memesData)
 
     function handleClick() {
-        const memes = memesData.data.memes
-        const meme = memes[Math.floor(Math.random()*memes.length)]
-        let url = meme.url
-        setMemeImg(url)
+        const memes = allMemeImages.data.memes
+        const randomNumber = Math.floor(Math.random() * memes.length)
+        const url = memes[randomNumber].url
+        setMeme((prevMeme) => {
+            return {
+                ...prevMeme,
+                randomImage: url
+            }
+        })
     }
 
     return (
@@ -33,7 +43,7 @@ function Meme() {
                     Get a new meme image 🖼
                 </button>
             </div >
-            <img src={memeImg} className="meme--image"/>
+            <img src={meme.randomImage} className="meme--image"/>
         </main>
     )
 }
