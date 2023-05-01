@@ -20,3 +20,7 @@ when React re-renders the component)
 immutable means unchanging.
 Props are immutable.
 state is mutable.
+4. What does "immutable" mean? Are props immutable? Is state immutable?
+immutable means unchanging.
+Props are immutable.
+state is mutable.
